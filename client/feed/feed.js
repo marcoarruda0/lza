@@ -3,5 +3,4 @@ Template.feed.helpers({
 		var postsDoCollection = posts.find().fetch();
 		return postsDoCollection;
 	}
-
 });
