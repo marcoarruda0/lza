@@ -10,5 +10,43 @@ Template.perfil.helpers({
 		var idDoUsuario = FlowRouter.getParam("id");
 		var postsDoPerfil = posts.find({idDoAutor: idDoUsuario}).fetch();
 		return postsDoPerfil;
+	},
+
+	segue: function() {
+		var idDoUsuario = FlowRouter.getParam("id");
+		var usuario = Meteor.users.findOne({_id: idDoUsuario});
+		var seguidores = usuario.profile.seguidores;
+
+		var posicao = seguidores.indexOf(Meteor.userId());
+
+		if(posicao === -1) {
+			return false; 
+	} else {
+			return true;
+		}
+	},
+
+	euMesmo: function() {
+		var idDoUsuario = FlowRouter.getParam("id");
+		if(idDoUsuario === Meteor.userId()) {
+			return true
+	} else {
+			return false
+		}
 	}
-})
+
+});
+
+Template.perfil.events({
+	"click.seguir": function(evento, template) {
+		console.log("seguindo");
+		var idDoUsuario = FlowRouter.getParam("id");
+		Meteor.call("seguirUsuario", idDoUsuario);
+	},
+
+	"click.deixar-de-seguir": function(evento, template) {
+		console.log("deixar de seguir")
+		Meteor.call("deixarDeSeguirUsuario", idDoUsuario);
+	}
+
+});
