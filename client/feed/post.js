@@ -22,6 +22,10 @@ Template.post.helpers({
 			return true;
 		}
 
+	},
+
+	comentarios: function() {
+		return comentariosDoPost = comentarios.find({post: this._id}).fetch();
 	}
 
 });
