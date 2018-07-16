@@ -5,4 +5,4 @@ Template.comentario.helpers({
 		return autor.username;
 	}
 
-})
+});
