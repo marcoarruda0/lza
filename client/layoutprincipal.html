@@ -35,11 +35,34 @@
 	        <li ><a href="/sobre"> Sobre </a></li>
 	        <li ><a href="/contato"> Contato </a></li>
 	        <li ><a href="/oportunidades"> Oportunidades </a></li>
-	        <li> {{> atNavButton}}</li>
+
+	        {{> pesquisa}}
+
+	      </ul>
+
+	      <!-- Navegation bar on the right side with login / logout button -->
+	      <ul class="nav navbar-nav navbar-right">
+	      		<li> <li> {{> atNavButton}}</li> </li>
 	      </ul>
 
 	     </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
 
+</template>
+
+<!-- Research for friends bar on nav bar template -->
+<template name="pesquisa">
+	<form class="navbar-form navbar-left" role="search">
+		<div class="form-group">
+			<input 
+			type="text" 
+			class="form-control typeahead" 
+			autocomplete="off"
+			spellcheck="off"
+			data-source="items"  
+			data-select="selected" 
+			placeholder="Pesquise por amigos...">
+		</div>
+	</form>
 </template>
