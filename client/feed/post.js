@@ -26,6 +26,11 @@ Template.post.helpers({
 
 	comentarios: function() {
 		return comentariosDoPost = comentarios.find({post: this._id}).fetch();
+	},
+
+	eAutor: function() {
+		var idDoAutor = this.idDoAutor;
+		return idDoAutor === Meteor.userId();
 	}
 
 });
@@ -37,5 +42,9 @@ Template.post.events({
 
 	"click .botao-descurtir": function(evento,template) {
 		Meteor.call("descurtirpost", template.data._id);
+	},
+
+	"click .botao-remover": function(evento,template) {
+		Meteor.call("removerPost", template.data._id);
 	}
 });

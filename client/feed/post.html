@@ -14,10 +14,14 @@
 
     <div class="panel-body">
     	{{#if usuarioCurtiu}}
-        <i class="fa fa-heart botao-descurtir" role="button"></i>
+        <i class="fa fa-heart botao-descurtir" role="button"> </i>
     	{{else}}
-        <i class="fa fa-heart-o botao-curtir" role="button"></i>
+        <i class="fa fa-heart-o botao-curtir" role="button"> </i>
     	{{/if}}
+
+      {{#if eAutor}}
+        <i class="fa fa-trash pull-right botao-remover" role="button"> </i>
+      {{/if}}
 
     	<div> {{numeroDeCurtidas}} curtidas </div>
   	
