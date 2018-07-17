@@ -8,7 +8,7 @@ Template.perfil.helpers({
 
 	posts: function() {
 		var idDoUsuario = FlowRouter.getParam("id");
-		var postsDoPerfil = posts.find({idDoAutor: idDoUsuario}).fetch();
+		var postsDoPerfil = posts.find({idDoAutor: idDoUsuario}).fetch().reverse();
 		return postsDoPerfil;
 	},
 
@@ -39,13 +39,11 @@ Template.perfil.helpers({
 
 Template.perfil.events({
 	"click.seguir": function(evento, template) {
-		console.log("seguindo");
 		var idDoUsuario = FlowRouter.getParam("id");
 		Meteor.call("seguirUsuario", idDoUsuario);
 	},
 
 	"click.deixar-de-seguir": function(evento, template) {
-		console.log("deixar de seguir")
 		Meteor.call("deixarDeSeguirUsuario", idDoUsuario);
 	}
 
