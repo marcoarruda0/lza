@@ -14,3 +14,15 @@ AccountsTemplates.configure({
 		});
 	}
 });
+
+Meteor.publish("posts",function(){
+	return posts.find();
+});
+
+Meteor.publish("usuarios", function() {
+	return Meteor.users.find();
+});
+
+Meteor.publish("comentarios",function(){
+	return comentarios.find();
+});
